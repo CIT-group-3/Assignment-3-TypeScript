@@ -57,8 +57,17 @@ export function gradeReport(studentId: string): string {
  *     averageGrade('00128')   // 11  (12 and 10)
  */
 export function averageGrade(studentId: string): number {
-  // TODO
-  throw new Error("not implemented");
+
+  const studentGrades = enrolments.filter(
+      (enrolment) => enrolment.studentId === studentId && enrolment.grade != null,
+    ).map(
+      (enrolment) => Number(enrolment.grade)); // get list of grades so we can know how many, needed for avg 
+    
+  return (studentGrades.length > 0) ? 
+    studentGrades.reduce(
+      (sum, grade) => (grade != null) ? sum + grade : 0, 0
+    ) / studentGrades.length // avg calculation
+    : 0;  // 0 if no grades
 }
 
 // --- A3. Who is missing a grade ------------------------------------------
@@ -102,6 +111,10 @@ export function raiseCredits(
   deptName: string,
   extra: number,
 ): Student[] {
-  // TODO
-  throw new Error("not implemented");
+
+  let extraCreditList = list.map((student) => {return{...student}});
+  extraCreditList.forEach((s) => 
+    (s.deptName === deptName) ? s.totCred += extra : s.totCred = s.totCred);
+
+  return extraCreditList;
 }
