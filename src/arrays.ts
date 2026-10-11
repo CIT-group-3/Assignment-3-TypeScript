@@ -6,7 +6,7 @@
 //     npm run build
 //     npm start
 
-import { Student, Enrolment, students, courses, enrolments } from "./data.js";
+import { courses, Enrolment, enrolments, Student, students } from "./data.js";
 
 // --- A1. The grade report -------------------------------------------------
 
@@ -41,7 +41,6 @@ export function gradeReport(studentId: string): string {
     })
     .join("\n");
 
-  throw new Error("not implemented");
 }
 
 // --- A2. Averaging --------------------------------------------------------
@@ -84,10 +83,15 @@ export function awaitingGrades(): string[] {
  * the error the compiler gives you.
  */
 export function formatterFor(
-  style: "short" | "long",
+  style: 'short' | 'long'
 ): (student: Student) => string {
-  // TODO
-  throw new Error("not implemented");
+  return (student: Student): string => {
+    if (style === 'short') {
+      return student.name;
+    }
+
+    return `${student.name} (${student.deptName}), ${student.totCred} credits`;
+  };
 }
 
 // --- A5. Changing nothing -------------------------------------------------
