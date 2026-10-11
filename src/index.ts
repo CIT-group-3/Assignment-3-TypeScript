@@ -3,14 +3,14 @@
 // Uncomment each block as you finish it. The expected result is beside each
 // line, so you can see for yourselves whether it is right.
 
-import { students } from "./data.js";
 import {
-  gradeReport,
   averageGrade,
   awaitingGrades,
   formatterFor,
+  gradeReport,
   raiseCredits,
 } from "./arrays.js";
+import { students } from "./data.js";
 // import { gradeReport, averageGrade, awaitingGrades, formatterFor, raiseCredits } from './arrays.js';
 import { not, partition, once, allOf, inDepartment, atLeast } from './functions.js';
 

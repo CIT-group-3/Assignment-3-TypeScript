@@ -93,10 +93,15 @@ export function awaitingGrades(): string[] {
  * the error the compiler gives you.
  */
 export function formatterFor(
-  style: "short" | "long",
+  style: 'short' | 'long'
 ): (student: Student) => string {
-  // TODO
-  throw new Error("not implemented");
+  return (student: Student): string => {
+    if (style === 'short') {
+      return student.name;
+    }
+
+    return `${student.name} (${student.deptName}), ${student.totCred} credits`;
+  };
 }
 
 // --- A5. Changing nothing -------------------------------------------------
