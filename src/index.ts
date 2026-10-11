@@ -3,14 +3,14 @@
 // Uncomment each block as you finish it. The expected result is beside each
 // line, so you can see for yourselves whether it is right.
 
-import { students } from "./data.js";
 import {
-  gradeReport,
   averageGrade,
   awaitingGrades,
   formatterFor,
+  gradeReport,
   raiseCredits,
 } from "./arrays.js";
+import { students } from "./data.js";
 // import { gradeReport, averageGrade, awaitingGrades, formatterFor, raiseCredits } from './arrays.js';
 // import { not, partition, once, allOf, inDepartment, atLeast } from './functions.js';
 
@@ -20,10 +20,10 @@ console.log(students.length + " students");
 console.log(gradeReport("00128"));
 //   CS-101 Intro. to Computer Science: 12
 //   CS-347 Database System Concepts: 10
-// console.log(gradeReport('98988'));
+console.log(gradeReport('98988'));
 //   BIO-101 Intro. to Biology: 12
 //   BIO-301 Genetics: not awarded
-// console.log(gradeReport('70557'));              // '' (no enrolments)
+console.log(gradeReport('70557'));              // '' (no enrolments)
 // console.log(averageGrade('00128'));             // 11
 // console.log(averageGrade('98988'));             // 12  (the null does not count)
 // console.log(averageGrade('70557'));             // 0
