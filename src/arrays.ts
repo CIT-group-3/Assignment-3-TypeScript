@@ -6,7 +6,7 @@
 //     npm run build
 //     npm start
 
-import { Student, Enrolment, students, courses, enrolments } from "./data.js";
+import { courses, Enrolment, enrolments, Student, students } from "./data.js";
 
 // --- A1. The grade report -------------------------------------------------
 
@@ -41,7 +41,6 @@ export function gradeReport(studentId: string): string {
     })
     .join("\n");
 
-  throw new Error("not implemented");
 }
 
 // --- A2. Averaging --------------------------------------------------------
