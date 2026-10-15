@@ -23,7 +23,6 @@ import { Student, Enrolment, students, courses, enrolments } from "./data.js";
  * join. No for loops in this file.
  */
 export function gradeReport(studentId: string): string {
-  // TODO
   const studentEnrolments = enrolments.filter(
     (enrolment) => enrolment.studentId === studentId,
   );
@@ -68,7 +67,16 @@ export function averageGrade(studentId: string): number {
  * sorted alphabetically and without repeats.
  */
 export function awaitingGrades(): string[] {
-  // TODO
+  const enrolmentsNoGrade = enrolments.filter(
+    (enrolment) => enrolment.grade === null,
+  );
+
+  return enrolmentsNoGrade
+    .map((enrolment) => {
+      const student = students.find((s) => s.id === enrolment.studentId);
+      return `${student?.name}`;
+    })
+    .sort();
   throw new Error("not implemented");
 }
 
