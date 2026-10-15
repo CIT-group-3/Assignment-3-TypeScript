@@ -2,7 +2,7 @@
 //
 // Each of these either takes a function, returns one, or both.
 
-import { Student } from './data.js';
+import { Student } from "./data.js";
 
 /** A test on a student. Used by everything below. */
 export type Test = (student: Student) => boolean;
@@ -19,7 +19,7 @@ export type Test = (student: Student) => boolean;
  */
 export function not(test: Test): Test {
   // TODO
-  throw new Error('not implemented');
+  throw new Error("not implemented");
 }
 
 // --- B2. One pass, two answers -------------------------------------------
@@ -34,8 +34,24 @@ export function not(test: Test): Test {
  * caller can take them apart by position.
  */
 export function partition(list: Student[], test: Test): [Student[], Student[]] {
-  // TODO
-  throw new Error('not implemented');
+  const passing: Student[] = [];
+  const failing: Student[] = [];
+
+  const filter = list.reduce<[Student[], Student[]]>(
+    (acc, student) => {
+      if (test(student)) {
+        passing.push(student);
+      } else {
+        failing.push(student);
+      }
+      return acc;
+    },
+    [passing, failing],
+  );
+
+  return filter;
+
+  throw new Error("not implemented");
 }
 
 // --- B3. Do it once -------------------------------------------------------
@@ -55,7 +71,7 @@ export function partition(list: Student[], test: Test): [Student[], Student[]] {
  */
 export function once(calculation: () => number): () => number {
   // TODO
-  throw new Error('not implemented');
+  throw new Error("not implemented");
 }
 
 // --- B4. All of them ------------------------------------------------------
@@ -71,12 +87,16 @@ export function once(calculation: () => number): () => number {
  */
 export function allOf(...tests: Test[]): Test {
   // TODO
-  throw new Error('not implemented');
+  throw new Error("not implemented");
 }
 
 // Two small helpers to build tests with, given to you.
-export const inDepartment = (deptName: string): Test =>
-  (student: Student) => student.deptName === deptName;
+export const inDepartment =
+  (deptName: string): Test =>
+  (student: Student) =>
+    student.deptName === deptName;
 
-export const atLeast = (credits: number): Test =>
-  (student: Student) => student.totCred >= credits;
+export const atLeast =
+  (credits: number): Test =>
+  (student: Student) =>
+    student.totCred >= credits;

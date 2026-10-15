@@ -10,9 +10,17 @@ import {
   gradeReport,
   raiseCredits,
 } from "./arrays.js";
+
 import { students } from "./data.js";
 // import { gradeReport, averageGrade, awaitingGrades, formatterFor, raiseCredits } from './arrays.js';
-// import { not, partition, once, allOf, inDepartment, atLeast } from './functions.js';
+import {
+  not,
+  partition,
+  once,
+  allOf,
+  inDepartment,
+  atLeast,
+} from "./functions.js";
 
 console.log(students.length + " students");
 
@@ -20,10 +28,10 @@ console.log(students.length + " students");
 console.log(gradeReport("00128"));
 //   CS-101 Intro. to Computer Science: 12
 //   CS-347 Database System Concepts: 10
-console.log(gradeReport('98988'));
+console.log(gradeReport("98988"));
 //   BIO-101 Intro. to Biology: 12
 //   BIO-301 Genetics: not awarded
-console.log(gradeReport('70557'));              // '' (no enrolments)
+console.log(gradeReport("70557")); // '' (no enrolments)
 // console.log(averageGrade('00128'));             // 11
 // console.log(averageGrade('98988'));             // 12  (the null does not count)
 // console.log(averageGrade('70557'));             // 0
@@ -39,8 +47,8 @@ console.log(gradeReport('70557'));              // '' (no enrolments)
 // const inCs = inDepartment('Comp. Sci.');
 // console.log(students.filter(inCs).length);       // 4
 // console.log(students.filter(not(inCs)).length);  // 9
-// const [upper, lower] = partition(students, atLeast(60));
-// console.log(upper.length, lower.length);         // 6 7
+const [upper, lower] = partition(students, atLeast(60));
+console.log(upper.length, lower.length); // 6 7
 // calls is not part of the task: it only proves the calculation ran once.
 // The first two numbers are the answer handed back twice, the last is how
 // many times the calculation actually ran.
