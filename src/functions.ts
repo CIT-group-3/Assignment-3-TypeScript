@@ -86,8 +86,10 @@ export function once(calculation: () => number): () => number {
  * With no tests at all, everything passes: there is nothing to fail.
  */
 export function allOf(...tests: Test[]): Test {
-  // TODO
-  throw new Error("not implemented");
+  return tests.reduce(
+    (sumTest, current) => 
+      (s) => sumTest(s) && current(s), 
+      ()=>true);
 }
 
 // Two small helpers to build tests with, given to you.

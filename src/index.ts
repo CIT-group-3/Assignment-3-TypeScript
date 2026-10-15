@@ -36,7 +36,7 @@ console.log(gradeReport('70557'));              // '' (no enrolments)
 console.log(averageGrade('00128'));             // 11
 console.log(averageGrade('98988'));             // 12  (the null does not count)
 console.log(averageGrade('70557'));             // 0
-// console.log(awaitingGrades());                  // [ 'Tanaka' ]
+console.log(awaitingGrades());                  // [ 'Tanaka' ]
 console.log(formatterFor('short')(students[0])); // Zhang
 console.log(formatterFor('long')(students[0]));  // Zhang (Comp. Sci.), 102 credits
 const raised = raiseCredits(students, 'Physics', 10);
@@ -56,5 +56,5 @@ console.log(upper.length, lower.length);         // 6 7
 // let calls = 0;
 // const count = once(() => { calls++; return students.length; });
 // console.log(count(), count(), calls);            // 13 13 1
-// console.log(students.filter(allOf(inCs, atLeast(60))).length);   // 1
-// console.log(students.filter(allOf()).length);    // 13
+console.log(students.filter(allOf(inCs, atLeast(60))).length);   // 1
+console.log(students.filter(allOf()).length);    // 13
